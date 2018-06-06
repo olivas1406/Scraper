@@ -1,40 +1,22 @@
-
 const express = require("express");
-const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
-const exphbs = require("express-handlebars");
-const cheerio = require("cheerio");
+const scraperModel = require("../models");
+const router = express.Router();
 
-// const routes =("./controller/scraper_controller.js");
-
-
-const axios = require("axios");
-const db = require("./models");
-const app = express();
-
-let port = process.env.port || 1337; 
-
-app.use(bodyParser.urlencoded({ extended: true }));
-
-app.use(express.static("public"));
-
-app.engine("handlebars", exphbs({                                   // Use the Handlebars engine
-    defaultLayout: "main"                                           // Use 'main' for static content
-}));
-
-app.set("view engine", "handlebars"); 
-
-
-app.use('/', routes);
-
-// app.use(routes);
-
-
-
-mongoose.connect("mongodb://localhost/scraperDB");
+router.get("/", function(req, res) {
+    scraperModel.selectAll(function(data) {
+        
+        var articleData = {
+            article: data
+        };
+        res.render("index", articleData);
+    });
+});
 
 app.get("/scrape"), function(req, res) {
     axios.get("http://www.fark.com").then(function(response) {
+
+        console.log(response.data);
+
         var $ = cheerio.load(response.data);
         $("span.headline").each(function(i, element) {
             var result = {};
@@ -76,6 +58,6 @@ app.post("/articles/:id", function(req, res) {
     });
 });
 
-app.listen(port, function() {
-    console.log("App up on port " + port);
-});
+
+
+module.exports = router;

@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+    background-color: lightgoldenrodyellow;
+}
+
+.articles {
+    background-image: url("./bg.jpg");
+    height: 100%; 
+    background-position: center;
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+    height: 1500px;                         /* REMOVE ME ONCE DATA IS POPULATED  */
+    border: solid 2px darkred;
+    border-radius: 10px;
+    margin-bottom: 6%;
+}
+
+.mainText {
+    text-align: center;
+    font-size: 54px;
+    margin-top: 2%;
+    font-family: 'Goudy Bookletter 1911', serif;
+    border: solid 1px darkred;
+
+}
+
+.subText {
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Goudy Bookletter 1911', serif;
+    margin-top: 1%;
+    margin-bottom: 2%;
+
+}
+
+
+
+
+
+
+
+
+
