@@ -2,7 +2,13 @@ const express = require("express");
 const scraperModel = require("../models");
 const router = express.Router();
 
-router.get("/", function(req, res) {
+
+const request = require("request");
+const cheerio = require("cheerio");
+
+
+
+app.get("/", function(req, res) {
     scraperModel.selectAll(function(data) {
         
         var articleData = {
@@ -12,7 +18,7 @@ router.get("/", function(req, res) {
     });
 });
 
-app.get("/scrape"), function(req, res) {
+app.get("/scrape", function(req, res) {
     axios.get("http://www.fark.com").then(function(response) {
 
         console.log(response.data);
@@ -30,7 +36,7 @@ app.get("/scrape"), function(req, res) {
         });
         res.send("Scrape Complete");
     });
-};
+});
 
 app.get("/articles", function(req, res) {
     db.Article.find({}).then(function(allArt) {
@@ -57,7 +63,5 @@ app.post("/articles/:id", function(req, res) {
         res.json(err);
     });
 });
-
-
 
 module.exports = router;
