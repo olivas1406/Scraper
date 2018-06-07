@@ -1,27 +1,11 @@
 const express = require("express");
-// const scraperModel = require("../models");
 const router = express.Router();
-
 const request = require("request");
 const cheerio = require("cheerio");
-
 const axios = require("axios");
 const db = require("../models");
 
-
-
-// app.get("/", function(req, res) {
-//     scraperModel.selectAll(function(data) {
-        
-//         var articleData = {
-//             article: data
-//         };
-//         res.render("index", articleData);
-//     });
-// });
-
 router.get("/", function(req, res) {
-    // scraperModel.selectAll(function(data) {
         db.selectAll(function(data) {
 
         
@@ -33,27 +17,6 @@ router.get("/", function(req, res) {
 });
 
 router.get("/scrape", function(req, res) {
-
-
-//     request("http://www.fark.com", function(error, response, html) {
-
-//     var $ = cheerio.load(html);
-//     var results = [];
-
-//     $("span.headline").each(function(i, element) {
-
-//     var link = $(element).children().attr("href");
-//     var title = $(element).children().text();
-
-//     results.push({
-//       title: title,
-//       link: link
-//     });
-//   });
-//   console.log(results);
-// });
-
-
     axios.get("http://www.fark.com").then(function(response) {
 
         console.log(response.data);
@@ -70,7 +33,6 @@ router.get("/scrape", function(req, res) {
             });
         });
         res.send("Scrape Complete");
-        // res.render("index", scrapedArt);
     });
 });
 
