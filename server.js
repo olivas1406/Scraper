@@ -3,8 +3,6 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const exphbs = require("express-handlebars");
-const cheerio = require("cheerio");
-const request = require("request");
 const routes = require("./controller/scraper_controller.js");
 const app = express();
 
@@ -24,6 +22,6 @@ app.use(routes);
 
 mongoose.connect("mongodb://localhost/scraperDB");
 
-app.listen(port, function() {
-    console.log("App listening on port " + port);
+app.listen(port, () => {
+    console.log(`App listening on port ${port}`);
 });
