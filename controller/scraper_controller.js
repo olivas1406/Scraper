@@ -6,15 +6,18 @@ const axios = require("axios");
 const db = require("../models");
 
 router.get("/", function(req, res) {
-        db.selectAll(function(data) {
+        // db.selectAll(function(data) {
 
         
-        var articleData = {
-            article: data
-        };
-        res.render("index", articleData);
+        // var articleData = {
+        //     article: data
+
+
+        
+        // res.render("index", articleData);
+        res.render("index");
     });
-});
+
 
 router.get("/scrape", function(req, res) {
     axios.get("http://www.fark.com").then(function(response) {
