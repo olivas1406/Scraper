@@ -32,9 +32,10 @@ router.get("/scrape", function(req, res) {
 });
 
 router.get("/articles", function(req, res) {
-    db.Article.find( { $where: function() {return this.saved === true}}).then(function(allArt){
-        console.log(allArt);
-        res.json(allArt);
+    db.Article.find( { $where: function() {return this.saved === true}}).then(function(savedArt){
+        console.log(savedArt);
+        // res.json(allArt);
+        res.render("articles", {savedArticles: savedArt});
 
     }).catch(function(err) {
         res.json(err);
