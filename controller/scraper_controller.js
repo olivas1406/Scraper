@@ -5,7 +5,6 @@ const cheerio = require("cheerio");
 const axios = require("axios");
 const db = require("../models");
 
-// Route for the homepage
 router.get("/", function(req, res) {
     db.Article.find().sort({_id:1}).then(function(allArt) {  
         res.render("index", {articles: allArt});
@@ -14,7 +13,6 @@ router.get("/", function(req, res) {
         });
 });
 
-// Route for the scrape button
 router.get("/scrape", function(req, res) {
     axios.get("http://www.fark.com").then(function(response) {
         var $ = cheerio.load(response.data);
@@ -33,13 +31,11 @@ router.get("/scrape", function(req, res) {
     });
 });
 
-
-
-
-/////////////////////////////////////////////   USE THIS TO SHOW ALL SAVED ARTICLES  //////////////
 router.get("/articles", function(req, res) {
-    db.Article.find({}).then(function(allArt) {
+    db.Article.find( { $where: function() {return this.saved === true}}).then(function(allArt){
+        console.log(allArt);
         res.json(allArt);
+
     }).catch(function(err) {
         res.json(err);
     });
@@ -47,9 +43,6 @@ router.get("/articles", function(req, res) {
 
 
 
-
-
-// route to Save articles
 router.get("/articles/:id", function(req, res) {
     db.Article.findOneAndUpdate({_id: req.params.id}, { $set: { saved: true}}, function() {
         console.log("Save Complete");
