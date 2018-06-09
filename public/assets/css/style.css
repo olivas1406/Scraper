@@ -3,11 +3,7 @@
     background-color: lightgoldenrodyellow;
 }
 
-.bg {
-    background-image: url("/assets/img/bg.jpg");
-}
 .articles {
-    /* background-image: url("/assets/img/bg.jpg"); */
     height: 100%; 
     color: white;
     background-position: center;
@@ -33,11 +29,6 @@
     margin-bottom: 2%;
 
 }
-
-
-
-
-
 
 
 

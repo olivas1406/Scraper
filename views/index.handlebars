@@ -26,9 +26,9 @@
     <div class="col-10 articles">
         <ul>
             {{#each articles}}
-                <h2 style="color: black;">{{this._id}}</h2><br>
+                {{!-- <h2 style="color: black;">{{this._id}}</h2><br> --}}
                 
-                <h2 style="color: black;">{{this.saved}}</h2><br>
+                {{!-- <h2 style="color: black;">{{this.saved}}</h2><br> --}}
 
                 <h2 style="color: black; float:left;margin-top:1%;">{{this.title}}</h2>
                 <form action="/articles/{{this.id}}">
