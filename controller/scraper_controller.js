@@ -6,31 +6,21 @@ const axios = require("axios");
 const db = require("../models");
 
 router.get("/", function(req, res) {
-        // db.selectAll(function(data) {
-
-        
-        // var articleData = {
-        //     article: data
-
-
-        
-        // res.render("index", articleData);
-        res.render("index");
-    });
-
-
+    db.Article.find({}).then(function(allArt) {  
+        res.render("index", {articles: allArt});
+        }).catch(function(err) {
+            res.json(err);
+        });
+});
+    
 router.get("/scrape", function(req, res) {
     axios.get("http://www.fark.com").then(function(response) {
-
-        console.log(response.data);
-
         var $ = cheerio.load(response.data);
         $("span.headline").each(function(i, element) {
             var result = {};
             result.title = $(this).children("a").text();
             result.link = $(this).children("a").attr("href");
             db.Article.create(result).then(function(scrapedArt) {
-                console.log(scrapedArt);
             }).catch(function(err) {
                 return res.json(err);
             });

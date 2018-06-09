@@ -1,12 +1,17 @@
-  
-        <div class="row">
+<div class="row">
             <div class="col-12 mainText">Article Scraper</div>
             <div class="col-12 subText">Fark.com Edition</div>
         </div>
         <div class="row">
             <div class="col-1"></div>
             <div class="col-10 articles">
-            {{{ articleData }}}
+                <ul>
+                    {{#each articles}}
+                        <h2 style="color: black;">{{this._id}}</h2><br>
+                        <h2 style="color: black;">{{this.title}}</h2><br>
+                        <a href="{{this.link}}" target="_blank">{{this.link}}</a><br><br><br>    
+                    {{/each}}
+                </ul>
             </div>
             <div class="col-1"></div>
-    </div>
+        </div>
