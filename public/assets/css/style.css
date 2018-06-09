@@ -3,14 +3,14 @@
     background-color: lightgoldenrodyellow;
 }
 
-.articles {
+.bg {
     background-image: url("/assets/img/bg.jpg");
+}
+.articles {
+    /* background-image: url("/assets/img/bg.jpg"); */
     height: 100%; 
     color: white;
     background-position: center;
-    /* background-repeat: no-repeat; */
-    /* background-size: cover; */
-    /* height: 1500px;                         REMOVE ME ONCE DATA IS POPULATED  */
     border: solid 2px darkred;
     border-radius: 10px;
     margin-bottom: 6%;

@@ -1,17 +1,43 @@
 <div class="row">
-            <div class="col-12 mainText">Article Scraper</div>
-            <div class="col-12 subText">Fark.com Edition</div>
-        </div>
-        <div class="row">
-            <div class="col-1"></div>
-            <div class="col-10 articles">
-                <ul>
-                    {{#each articles}}
-                        <h2 style="color: black;">{{this._id}}</h2><br>
-                        <h2 style="color: black;">{{this.title}}</h2><br>
-                        <a href="{{this.link}}" target="_blank">{{this.link}}</a><br><br><br>    
-                    {{/each}}
-                </ul>
-            </div>
-            <div class="col-1"></div>
-        </div>
+    <div class="col-12 mainText">Article Scraper</div>
+    <div class="col-12 subText">Fark.com Edition</div>
+</div>
+<div class="row">
+    <div class="col-12">
+  
+        <p>Saved articles button goes here - need to be able to add notes after viewing saved articles</p>
+        <br>
+        <p>Each article needs to have a 'save' button next to it - need route for /saved</p>
+        <br>
+        <p>need to be able to view and delete notes from saved articles</p>
+        <br>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <form action="/scrape">
+            <button class="btn btn-danger">Scrape Articles</button>
+        </form>
+        <br>
+    </div>
+</div>
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-10 articles">
+        <ul>
+            {{#each articles}}
+                <h2 style="color: black;">{{this._id}}</h2><br>
+                
+                <h2 style="color: black;">{{this.saved}}</h2><br>
+
+                <h2 style="color: black; float:left;margin-top:1%;">{{this.title}}</h2>
+                <form action="/articles/{{this.id}}">
+                    <button class="btn btn-success" style="margin-left: 4%;">Save Article</button>
+                </form><br>
+                <a href="{{this.link}}" target="_blank">{{this.link}}</a><br><br><br>   
+                <hr> 
+            {{/each}}
+        </ul>
+    </div>
+    <div class="col-1"></div>
+</div>
