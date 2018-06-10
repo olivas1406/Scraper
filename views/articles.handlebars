@@ -6,6 +6,9 @@
             {{#each savedArticles}}
                 <p style="margin-top:1%;">{{this.title}}</p><br>
                 <a href="{{this.link}}" target="_blank">{{this.link}}</a> 
+                <form action="/articleNote">
+                    <button class="btn btn-light" style="margin-top:1%;">Note</button>
+                </form>
                 <hr> 
             {{/each}}
         </ul>
@@ -21,8 +24,3 @@
     </div>
     <div class="col-9"></div>
 </div>
-
-
-
-
-

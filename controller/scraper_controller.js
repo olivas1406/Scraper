@@ -33,16 +33,12 @@ router.get("/scrape", function(req, res) {
 
 router.get("/articles", function(req, res) {
     db.Article.find( { $where: function() {return this.saved === true}}).then(function(savedArt){
-        console.log(savedArt);
-        // res.json(allArt);
+        // console.log(savedArt);
         res.render("articles", {savedArticles: savedArt});
-
     }).catch(function(err) {
         res.json(err);
     });
 });
-
-
 
 router.get("/articles/:id", function(req, res) {
     db.Article.findOneAndUpdate({_id: req.params.id}, { $set: { saved: true}}, function() {
@@ -53,14 +49,21 @@ router.get("/articles/:id", function(req, res) {
     })
 });
 
-router.post("/articles/:id", function(req, res) {
+
+// not working
+
+router.post("/articleNote/:id", function(req, res) {
     db.Note.create(req.body).then(function(dbNote) {
         return db.Article.findOneAndUpdate({_id: req.params.id}, {note: dbNote._id}, {new: true});
     }).then(function(potato) {
+        console.log(potato);
         res.json(potato);        
     }).catch(function(err) {
         res.json(err);
     });
 });
+
+
+
 
 module.exports = router;
