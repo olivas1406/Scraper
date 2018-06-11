@@ -1,5 +1,5 @@
 
-$(document).on("click", "p", function() {
+$("p").on("click", function() {
     $(".notes").empty();
     var thisId = $(this).attr("data-id");
     $.ajax({
