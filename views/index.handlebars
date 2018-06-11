@@ -1,33 +1,30 @@
-
-{{!--   
-        <p>need to be able to view and delete notes from saved articles</p>
-        <br> --}}
-
-<div class="row">
-    <div class="col-3">
-        <form action="/scrape">
-            <button class="btn btn-light" style="float:left;">Scrape Articles</button>
-        </form>
-        <form action="/articles">
-            <button class="btn btn-light" style="margin-left: 2%;margin-bottom:4%;">Saved Articles</button>
-        </form>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-3">
+            <form action="/scrape">
+                <button class="btn btn-light" style="float:left;">Scrape Articles</button>
+            </form>
+            <form action="/articles">
+                <button class="btn btn-light" style="margin-left: 2%;margin-bottom:4%;">Saved Articles</button>
+            </form>
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-1"></div>
-    <div class="col-10 articles">
-        <ul>
-            {{#each articles}}
-                <h2 style="margin-top:1%;">{{this.title}}</h2>
-                <br>
-                <a href="{{this.link}}" target="_blank">{{this.link}}</a><br><br>
-                <form action="/articles/{{this.id}}">
-                    <button class="btn btn-dark">Save Article</button>
-                </form>   
-                <div id="notes"></div>
-                <hr> 
-            {{/each}}
-        </ul>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <div class="articles">
+                <ul>
+                {{#each articles}}
+                    <p style="margin-top:1%;" data-id="{{this._id}}">{{this.title}}</p>
+                    <br>
+                    <a href="{{this.link}}" target="_blank">{{this.link}}</a><br><br>
+                    <form action="/articles/{{this.id}}">
+                        <button class="btn btn-dark">Save Article</button>
+                    </form>   
+                    <hr> 
+                {{/each}}
+                </ul>
+            </div>
+        </div>    
     </div>
     <div class="col-1"></div>
-</div>
