@@ -6,9 +6,31 @@
 .articles {
     height: 100%; 
     background-position: center;
-    border: solid 2px darkred;
     border-radius: 10px;
     margin-bottom: 6%;
+    display: inline-block;
+    overflow-wrap: break-word;
+}
+
+.notes {
+    float: right;
+    width: 30%;
+}
+
+textarea, input {
+    display: block;
+    width: 100%;
+    background-color: #FCF5C7;
+}
+
+input {
+    height: 36px;
+    font-size: 24px;
+}
+
+textarea {
+    height: 200px;
+    font-size: 18px;
 }
 
 .mainText {
@@ -17,7 +39,6 @@
     margin-top: 2%;
     font-family: 'Goudy Bookletter 1911', serif;
     border: solid 1px darkred;
-
 }
 
 .subText {
@@ -26,7 +47,6 @@
     font-family: 'Goudy Bookletter 1911', serif;
     margin-top: 1%;
     margin-bottom: 2%;
-
 }
 
 .savedArt {
@@ -34,3 +54,7 @@
     text-align: center;
     margin-top: 1%;
 }
+
+
+
+
