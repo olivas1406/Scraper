@@ -31,6 +31,7 @@ router.get("/scrape", function(req, res) {
     });
 });
 
+/////HANDLEBARS VERSION FOR SAVED ART/////
 router.get("/articles", function(req, res) {
     db.Article.find( { $where: function() {return this.saved === true}}).then(function(savedArt){
         // console.log(savedArt);
@@ -39,6 +40,7 @@ router.get("/articles", function(req, res) {
         res.json(err);
     });
 });
+/////HANDLEBARS VERSION FOR SAVED ART/////
 
 router.get("/articles/:id", function(req, res) {
     db.Article.findOneAndUpdate({_id: req.params.id}, { $set: { saved: true}}, function() {
