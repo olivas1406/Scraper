@@ -4,11 +4,12 @@
         <h1 class="savedArt">Saved Articles</h1>
         <ul>
             {{#each savedArticles}}
-                <p style="margin-top:1%;">{{this.title}}</p><br>
+                <p style="margin-top:1%;" data-id="{{this._id}}">{{this.title}}</p><br>
                 <a href="{{this.link}}" target="_blank">{{this.link}}</a> 
                 <form action="/articleNote">
                     <button class="btn btn-light" style="margin-top:1%;">Note</button>
                 </form>
+                <div id="notes"></div>
                 <hr> 
             {{/each}}
         </ul>
@@ -24,3 +25,9 @@
     </div>
     <div class="col-9"></div>
 </div>
+
+</div>
+      <div class="notes"></div>
+
+    </div> 
+    <script src="app.js"></script>
