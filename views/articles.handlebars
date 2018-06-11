@@ -1,33 +1,36 @@
 <div class="row">
     <div class="col-1"></div>
-    <div class="col-10 articles">
+    <div class="col-7 articles">
         <h1 class="savedArt">Saved Articles</h1>
         <ul>
             {{#each savedArticles}}
                 <p style="margin-top:1%;" data-id="{{this._id}}">{{this.title}}</p><br>
-                <a href="{{this.link}}" target="_blank">{{this.link}}</a> 
-                <form action="/articleNote">
-                    <button class="btn btn-light" style="margin-top:1%;">Note</button>
-                </form>
+                <a href="{{this.link}}" target="_blank">{{this.link}}</a><br>
+                {{!-- <form action="/articleNote"> --}}
+                    <button class="btn btn-light noteMe" style="margin-top:1%;">Note</button>
+                {{!-- </form> --}}
                 <div id="notes"></div>
                 <hr> 
             {{/each}}
         </ul>
     </div>
+    <div class="col-3">
+        <div class="notes">
+            <h2></h2>
+            <input id="titleinput" name="title">
+            <textarea id="bodyinput" name="body"></textarea>
+            <button data-id='" + data._id + "' id='savenote'>Save Note</button>
+        </div>
+    </div>
     <div class="col-1"></div>
 </div>
 <div class="row">
     <div class="col-1"></div>
-    <div class="col-2">
-        <a href="/" class="artButton">
-            <button type="button" class="btn btn-light">Back to All Articles</button>
-        </a>
+        <div class="col-2">
+            <a href="/">
+                <button type="button" class="btn btn-light artButton">Back to All Articles</button>
+            </a>
+        </div>
+        <div class="col-9"></div>
     </div>
-    <div class="col-9"></div>
 </div>
-
-</div>
-      <div class="notes"></div>
-
-    </div> 
-    <script src="app.js"></script>
