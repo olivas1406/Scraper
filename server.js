@@ -19,7 +19,7 @@ app.engine("handlebars", exphbs({
 
 app.set("view engine", "handlebars"); 
 
-mongoose.connect("mongodb://localhost/scraperDB");
+mongoose.connect("mongodb://scraperUser:scrapeMe1337@ds255930.mlab.com:55930/heroku_hlxt5c6q")
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);
