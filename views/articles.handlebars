@@ -6,9 +6,7 @@
             {{#each savedArticles}}
                 <p style="margin-top:1%;" data-id="{{this._id}}">{{this.title}}</p><br>
                 <a href="{{this.link}}" target="_blank">{{this.link}}</a><br>
-                {{!-- <form action="/articleNote"> --}}
                     <button class="btn btn-light noteMe" style="margin-top:1%;">Note</button>
-                {{!-- </form> --}}
                 <div id="notes"></div>
                 <hr> 
             {{/each}}

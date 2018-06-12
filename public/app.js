@@ -2,7 +2,7 @@
 $(".notes").hide();
 
 $(".noteMe").on("click", function() {
-    $(".notes").empty();
+    $(".notes").empty().show();
     var thisId = $(this).attr("data-id");
     $.ajax({
         method: "GET",
@@ -19,4 +19,19 @@ $(".noteMe").on("click", function() {
       });
   });
   
+$("#savenote").on("click", function() {
+    var thisId = $(this).attr("data-id");
+    $.ajax({
+        method: "POST",
+        url: "/articles/" + thisId,
+        data: {
+            title: $("#titleinput").val(),
+            body: $("#bodyinput").val()
+        }
+    }).then(function(data) {
+        $("#notes").empty();
+    });
+    $("#titleinput").val("");
+    $("#bodyinput").val("");
+});
  
