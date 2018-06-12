@@ -5,7 +5,7 @@ const exphbs = require("express-handlebars");
 const routes = require("./controller/scraper_controller.js");
 const app = express();
 
-let PORT = process.env.port || 1337; 
+let PORT = process.env.port || 3000; 
 
 app.use(routes);
 
