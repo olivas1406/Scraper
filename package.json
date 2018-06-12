@@ -26,6 +26,7 @@
     "cheerio": "^1.0.0-rc.2",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
+    "gulp": "^3.9.1",
     "i": "^0.3.6",
     "mongoose": "^5.1.4",
     "request": "^2.87.0"
