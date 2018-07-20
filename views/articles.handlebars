@@ -6,7 +6,7 @@
             {{#each savedArticles}}
                 <p style="margin-top:1%;" data-id="{{this._id}}">{{this.title}}</p><br>
                 <a href="{{this.link}}" target="_blank">{{this.link}}</a><br>
-                    <button class="btn btn-light noteMe" style="margin-top:1%;">Note</button>
+                    {{!-- <button class="btn btn-light noteMe" style="margin-top:1%;">Note</button> --}}
                 <div id="notes"></div>
                 <hr> 
             {{/each}}
@@ -17,7 +17,7 @@
             <h2></h2>
             <input id="titleinput" name="title">
             <textarea id="bodyinput" name="body"></textarea>
-            <button data-id='" + data._id + "' id='savenote'>Save Note</button>
+            {{!-- <button data-id='" + data._id + "' id='savenote'>Save Note</button> --}}
         </div>
     </div>
     <div class="col-1"></div>
